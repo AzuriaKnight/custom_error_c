@@ -5,19 +5,31 @@
 <!--[if gt IE 8]><!--> 
 <html class="no-js" lang="en-US"> <!--<![endif]-->
 <head>
-<title>cloudflarepreview.com | 522: Connection timed out</title>
+<title>Error</title>
 <meta charset="UTF-8" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 	::CLOUDFLARE_ERROR_500S_BOX::
-	<div style="text-align:center;"><h3>"Oops, there was an error! Please try again."</h3></div>
+	<div style="text-align:center;">
+	<h3>"Oops, there was an error! Please try again."</h3>
+	<h2 id="error_message"></h2>
+	</div>
 </body>
 	<script>
 	$( document ).ready(function() {
 		if (document.getElementsByClassName('cf-error-details') != null){
 			$('.cf-error-details').hide();
 		}
+		
+		var errMsg = document.getElementsByTagName("h1")[0].innerHTML;		
+		var listUL = document.getElementsByTagName("ul")[0];
+		var errRef = listUL.getElementsByTagName("li")[2].innerHTML
+		
+		var errCode = errRef.substring((errRef.length-4), errRef.length)
+		
+		document.getElementById("error_message").innerHTML = "Error "+errCode+ " : "+errMsg;
+		
 	});
 	</script>
 </html>
