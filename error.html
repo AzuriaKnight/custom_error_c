@@ -12,4 +12,14 @@
 	::CLOUDFLARE_ERROR_500S_BOX::
 	<div style="text-align:center;"><h3>"Oops, there was an error! Please try again."</h3></div>
 </body>
+	<script>
+	// self executing function here
+	(function() {
+	   // your page initialization code here
+	   // the DOM will be available here
+		if (document.getElementsByClassName('cf-error-details') != null ){
+			document.getElementsByClassName('cf-error-details').style.visibility = 'hidden';
+		}
+	})();
+	</script>
 </html>
